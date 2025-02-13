@@ -18,4 +18,20 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        host: '0.0.0.0', // Allow network access
+        port: 5173, // default vite port
+        strictPort: true, // ensure it does not change
+        hmr: {
+            host: '192.168.1.72' // vm ip
+        },
+        proxy: {
+            "/api": {
+                target: "http://192.168.1.72:8000",
+                changeOrigin: true,
+                secure: false,
+
+            }
+        }
+    }
 });

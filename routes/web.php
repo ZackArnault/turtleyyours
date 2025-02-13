@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('posts', PostController::class)
-    ->only(['index', 'store'])
-    ->middleware(['auth', 'verified']);
+    ->only(['index', 'store', 'update', 'destroy'])
+    ->middleware(['auth']);
 
 require __DIR__.'/auth.php';
